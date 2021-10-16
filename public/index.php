@@ -11,6 +11,8 @@ Traslator::set([
     'FireBowAttack' => '<b>:unit</b> dispara una flecha de fuego con un <b>Arco de Fuego</b> a <b>:opponent</b>'
 ]);
 
+Log::SetLogger(new HtmlLogger());
+
 //Metodo factory o tambien llamado un name construct
 $ramm = Unit::createSoldier()
         ->setWeapon(new Weapons\CrossBow())

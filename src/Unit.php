@@ -57,7 +57,7 @@ class Unit
     {
         $attack = $this->weapon->createAttack();
 
-        HtmlLogger::info($attack->getDescription($this, $opponent));
+        Log::info($attack->getDescription($this, $opponent));
 
         $opponent->takeDamage($attack);
     }
@@ -69,7 +69,7 @@ class Unit
             $this->hp = 0;
         }
 
-        HtmlLogger::info("{$this->name} ahora tiene {$this->hp} puntos de vida");
+        Log::info("{$this->name} ahora tiene {$this->hp} puntos de vida");
         
         if ($this->hp <= 0) {
             $this->die();
@@ -78,12 +78,12 @@ class Unit
     
     public function move($direction)
     {
-        HtmlLogger::info("{$this->name} camina hacia {$direction}");
+        Log::info("{$this->name} camina hacia {$direction}");
     }
 
     public function die()
     {
-        HtmlLogger::info("{$this->name} Muere");
+        Log::info("{$this->name} Muere");
         exit();
     }
 } 
