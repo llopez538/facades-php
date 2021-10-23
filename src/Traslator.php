@@ -4,28 +4,29 @@ namespace Styde;
 
 class Traslator
 {
-    protected static $messages = [];
+    public static $messages = [];
 
-    public static function set(array $messages)
+    public function __construct(array $messages)
     {
         static::$messages = $messages;
+        var_dump ($messages);
     }
 
-    public static function get($key, array $params = array())
+    public function get($key, array $params = array())
     {
-        if (! static::has($key)){
+        if (! $this->has($key)){
             return "[$key]";
         }
 
-        return static::replaceParams(static::$messages[$key], $params);
+        return $this->replaceParams(static::messages[$key], $params);
     }
 
-    public static function has($key)
+    public function has($key)
     {
-        return isset(static::$messages[$key]);
+        return isset($this->messages[$key]);
     }
 
-    public static function replaceParams($message, array $params)
+    public function replaceParams($message, array $params)
     {
         foreach ($params as $key => $value) {
             $message = str_replace(":$key", $value, $message);

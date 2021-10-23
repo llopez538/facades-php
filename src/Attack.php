@@ -17,7 +17,8 @@ class Attack
 
     public function getDescription(Unit $attaker, Unit $opponent)
     {
-        return Traslator::get($this->description, [
+        echo "<h1>".$this->description."</h1>";
+        return Traslate::get($this->description, [
            'unit' => $attaker->getName(), 
            'opponent' => $opponent->getName(), 
         ]);
